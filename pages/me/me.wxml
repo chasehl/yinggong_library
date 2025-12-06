@@ -1,0 +1,133 @@
+<!-- pages/me/me.wxml -->
+<view class="me-page">
+  <!-- 1. 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-bg"></view>
+    <view class="user-info">
+      <view class="avatar-section" bindtap="handleAvatarTap">
+        <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}"></image>
+        <view class="avatar-edit">编辑</view>
+      </view>
+      <view class="user-main">
+        <view class="user-name">{{userInfo.nickName || '点击登录'}}</view>
+        <view class="user-id">ID: {{userInfo.studentId || '未绑定学号'}}</view>
+        <view class="user-meta">
+          <text class="meta-item">会员等级: {{userInfo.level || '普通会员'}}</text>
+          <text class="meta-item">积分: {{userInfo.points || 0}}</text>
+        </view>
+      </view>
+      <view class="user-actions">
+        <button wx:if="{{!userInfo.nickName}}" class="login-btn" bindtap="handleLogin" size="mini" type="primary">登录</button>
+        <button wx:else class="logout-btn" bindtap="handleLogout" size="mini" plain>退出</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 2. 数据统计卡片 -->
+  <view class="stats-card">
+    <view class="stats-grid">
+      <view class="stats-item" bindtap="goToBorrowed">
+        <text class="stats-number">{{borrowStats.borrowedCount || 0}}</text>
+        <text class="stats-label">在借图书</text>
+      </view>
+      <view class="stats-item" bindtap="goToHistory">
+        <text class="stats-number">{{borrowStats.historyCount || 0}}</text>
+        <text class="stats-label">历史借阅</text>
+      </view>
+      <view class="stats-item" bindtap="goToReserved">
+        <text class="stats-number">{{borrowStats.reservedCount || 0}}</text>
+        <text class="stats-label">已预约</text>
+      </view>
+      <view class="stats-item" bindtap="goToOverdue">
+        <text class="stats-number overdue {{borrowStats.overdueCount > 0 ? 'has-overdue' : ''}}">
+          {{borrowStats.overdueCount || 0}}
+        </text>
+        <text class="stats-label">逾期</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 3. 功能菜单列表 -->
+  <view class="menu-section">
+    <view class="menu-title">我的服务</view>
+    
+    <view class="menu-list">
+      <!-- 第一行：借阅相关 -->
+      <view class="menu-item" bindtap="goToBorrowed">
+        <view class="menu-icon icon-borrowed"></view>
+        <text class="menu-text">我的借阅</text>
+        <view class="menu-badge" wx:if="{{borrowStats.borrowedCount > 0}}">{{borrowStats.borrowedCount}}</view>
+        <view class="menu-arrow">></view>
+      </view>
+      
+      <view class="menu-item" bindtap="goToReserved">
+        <view class="menu-icon icon-reserved"></view>
+        <text class="menu-text">我的预约</text>
+        <view class="menu-badge" wx:if="{{borrowStats.reservedCount > 0}}">{{borrowStats.reservedCount}}</view>
+        <view class="menu-arrow">></view>
+      </view>
+      
+      <view class="menu-item" bindtap="goToHistory">
+        <view class="menu-icon icon-history"></view>
+        <text class="menu-text">借阅历史</text>
+        <view class="menu-arrow">></view>
+      </view>
+      
+      <view class="menu-item" bindtap="goToFavorites">
+        <view class="menu-icon icon-favorites"></view>
+        <text class="menu-text">我的收藏</text>
+        <view class="menu-badge" wx:if="{{borrowStats.favoriteCount > 0}}">{{borrowStats.favoriteCount}}</view>
+        <view class="menu-arrow">></view>
+      </view>
+    </view>
+    
+    <!-- 分割线 -->
+    <view class="menu-divider"></view>
+    
+    <view class="menu-list">
+      <!-- 第二行：账户设置 -->
+      <view class="menu-item" bindtap="goToSettings">
+        <view class="menu-icon icon-settings"></view>
+        <text class="menu-text">账户设置</text>
+        <view class="menu-arrow">></view>
+      </view>
+      
+      <view class="menu-item" bindtap="goToMessage">
+        <view class="menu-icon icon-message"></view>
+        <text class="menu-text">消息中心</text>
+        <view class="menu-badge" wx:if="{{unreadMessageCount > 0}}">{{unreadMessageCount}}</view>
+        <view class="menu-arrow">></view>
+      </view>
+      
+      <view class="menu-item" bindtap="goToFeedback">
+        <view class="menu-icon icon-feedback"></view>
+        <text class="menu-text">意见反馈</text>
+        <view class="menu-arrow">></view>
+      </view>
+      
+      <view class="menu-item" bindtap="goToAbout">
+        <view class="menu-icon icon-about"></view>
+        <text class="menu-text">关于我们</text>
+        <view class="menu-arrow">></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 4. 操作按钮 -->
+  <view class="action-section">
+    <button class="action-btn primary" bindtap="goToScanBorrow">
+      <view class="action-icon">📚</view>
+      <text class="action-text">扫码借书</text>
+    </button>
+    <button class="action-btn secondary" bindtap="goToRenew">
+      <view class="action-icon">🔄</view>
+      <text class="action-text">一键续借</text>
+    </button>
+  </view>
+
+  <!-- 5. 底部版本信息 -->
+  <view class="footer">
+    <text class="version">版本号: v1.0.0</text>
+    <text class="copyright">© 2023 智慧图书馆</text>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "智慧图书馆",
+  "navigationBarBackgroundColor": "#5B86E5",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false
+}
