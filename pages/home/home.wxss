@@ -1,198 +1,178 @@
-/* pages/home/home.wxss */
-.home-page {
+/* 页面整体 */
+.page {
   min-height: 100vh;
-  background-color: #f8f9fa;
-  padding-bottom: 40rpx;
+  background-color: #f5f6fa;
+  padding: 20rpx;
+  box-sizing: border-box;
 }
 
-/* 1. 顶部横幅样式 */
-.banner {
-  position: relative;
-  width: 100%;
-  height: 320rpx;
-  overflow: hidden;
-}
-.banner-image {
-  width: 100%;
-  filter: brightness(0.9);
-}
-.banner-title, .banner-subtitle {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  text-shadow: 1rpx 1rpx 4rpx rgba(0,0,0,0.5);
-}
-.banner-title {
-  top: 30%;
-  font-size: 44rpx;
-}
-.banner-subtitle {
-  top: 50%;
-  font-size: 28rpx;
-  opacity: 0.9;
+/* 统一卡片样式 */
+.card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.04);
 }
 
-/* 2. 搜索框样式 */
-.search-section {
-  padding: 30rpx;
-  margin-top: -60rpx; /* 向上重叠，产生悬停效果 */
-}
-.search-box {
+/* ================= 顶部状态栏 ================= */
+.status-bar {
   display: flex;
   align-items: center;
-  background: white;
-  border-radius: 50rpx;
-  padding: 24rpx 32rpx;
-  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.08);
-  border: 1rpx solid #eee;
-}
-.search-icon {
-  margin-right: 16rpx;
-  color: #999;
-}
-.search-placeholder {
-  color: #aaa;
-  font-size: 28rpx;
 }
 
-/* 3. 功能区样式 */
-.function-grid {
-  display: flex;
-  justify-content: space-around;
-  padding: 40rpx 0;
-  background: white;
-  margin: 0 30rpx 30rpx;
-  border-radius: 24rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03);
+.logo {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 20rpx;
 }
-.function-item {
+
+.title-wrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.function-icon {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  margin-bottom: 16rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40rpx;
-  color: white;
-}
-.icon-scan { background: linear-gradient(135deg, #36D1DC, #5B86E5); }
-.icon-hot { background: linear-gradient(135deg, #FF9A9E, #FAD0C4); }
-.icon-recommend { background: linear-gradient(135deg, #A3BFFA, #6991C7); }
-.icon-mybook { background: linear-gradient(135deg, #42e695, #3BB2B8); }
-.function-text {
-  font-size: 24rpx;
-  color: #555;
 }
 
-/* 4. 内容区样式 */
-.section {
-  background: white;
-  margin: 0 30rpx;
-  border-radius: 24rpx;
-  padding: 32rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03);
-}
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 32rpx;
-}
-.section-title {
-  font-size: 34rpx;
-  font-weight: bold;
-  color: #333;
-}
-.section-more {
-  font-size: 26rpx;
-  color: #5B86E5;
+.small {
+  font-size: 22rpx;
+  color: #888;
 }
 
-/* 图书卡片样式 */
-.book-list {
-  display: flex;
-  flex-direction: column;
-  gap: 32rpx; /* 卡片间距 */
-}
-.book-card {
-  display: flex;
-  background: #fdfdfd;
-  border-radius: 20rpx;
-  overflow: hidden;
-  border: 1rpx solid #f0f0f0;
-  transition: all 0.3s ease;
-}
-.book-card:active {
-  transform: translateY(-4rpx);
-  box-shadow: 0 12rpx 30rpx rgba(0, 0, 0, 0.1);
-}
-.book-cover {
-  width: 180rpx;
-  height: 240rpx;
-  flex-shrink: 0;
-}
-.book-info {
-  flex: 1;
-  padding: 28rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.book-title {
+.title {
   font-size: 32rpx;
   font-weight: bold;
   color: #333;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  line-height: 1.4;
+  margin-top: 4rpx;
 }
-.book-author {
-  font-size: 26rpx;
-  color: #666;
-  margin: 12rpx 0;
-}
-.book-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.book-category {
-  font-size: 24rpx;
-  color: #888;
-  background: #f2f2f2;
-  padding: 6rpx 16rpx;
-  border-radius: 20rpx;
-}
-.book-status {
-  font-size: 24rpx;
-  font-weight: bold;
-}
-.book-status.available { color: #07c160; }
-.book-status.borrowed { color: #fa5151; }
 
-/* 服务公告样式 */
-.notice {
+/* ================= 搜索栏 ================= */
+.search-bar {
   display: flex;
   align-items: center;
-  background: #e6f7ff;
-  margin: 40rpx 30rpx 0;
-  padding: 20rpx 28rpx;
-  border-radius: 16rpx;
-  border-left: 8rpx solid #1890ff;
+  height: 80rpx;
 }
-.notice-text {
-  font-size: 26rpx;
-  color: #666;
-  margin-left: 16rpx;
+
+.search-placeholder {
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* ================= 1x2 宫格 ================= */
+.grid-1x2 {
+  display: flex;
+}
+
+.grid-cell {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 0;
+}
+
+.grid-cell:first-child {
+  border-right: 1rpx solid #eee;
+}
+
+.icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-bottom: 10rpx;
+}
+
+.cell-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* ================= 2x4 宫格导航 ================= */
+.nav-card {
+  padding-bottom: 10rpx;
+}
+
+.nav-header {
+  margin-bottom: 20rpx;
+}
+
+.nav-label {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #444;
+}
+
+.nav-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  width: 25%;
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-bottom: 8rpx;
+}
+
+.nav-text {
+  font-size: 24rpx;
+  color: #333;
+}
+
+/* ================= 为你推荐 ================= */
+.recommend-section {
+  padding-bottom: 16rpx;
+}
+
+.section-header {
+  margin-bottom: 16rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #444;
+}
+
+.recommend-scroll {
+  white-space: nowrap;
+}
+
+.book-card {
+  display: inline-block;
+  width: 220rpx;
+  margin-right: 20rpx;
+}
+
+.book-cover {
+  width: 220rpx;
+  height: 300rpx;
+  border-radius: 10rpx;
+  background: #eee;
+}
+
+.book-title {
+  display: block;
+  font-size: 26rpx;
+  margin-top: 8rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-author {
+  font-size: 22rpx;
+  color: #888;
+  margin-top: 4rpx;
+}
+
+/* ================= 底部占位 ================= */
+.bottom-space {
+  height: 40rpx;
 }
