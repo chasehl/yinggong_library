@@ -1,3 +1,11 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "renderer": "webview",
+  "navigationStyle": "default",
+  "navigationBarTitleText": "通知公告",
+  "navigationBarBackgroundColor": "#5B86E5",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#f5f7fa"
 }

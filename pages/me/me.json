@@ -1,5 +1,7 @@
 {
   "usingComponents": {},
+  "renderer": "webview",
+  "navigationStyle": "default",
   "navigationBarTitleText": "我的",
   "navigationBarBackgroundColor": "#5B86E5",
   "navigationBarTextStyle": "white",

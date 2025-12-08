@@ -1,6 +1,5 @@
 <!-- pages/home/home.wxml -->
-<view class="page">
-
+<scroll-view class="page" scroll-y="true" enable-back-to-top="true">
 <!-- 顶部状态栏：左校徽 + 右标题 -->
 <view class="status-bar card">
   <image src="/images/default-avatar.png" class="logo" mode="aspectFit" />
@@ -96,4 +95,4 @@
 <!-- 页面底部预留（或导航占位） -->
 <view class="bottom-space"></view>
 
-</view>
+</scroll-view>
