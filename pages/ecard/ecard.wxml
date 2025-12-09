@@ -1,0 +1,50 @@
+<!--pages/ecard/ecard.wxml-->
+<view class="container">
+  
+  <view class="card-wrap">
+    <view class="library-card">
+      <image class="card-bg" src="/images/card-pattern.png" mode="aspectFill" wx:if="{{false}}"/>
+      
+      <view class="card-header">
+        <image class="school-logo" src="/images/default-avatar.png" mode="aspectFit"></image>
+        <view class="school-name">应用工程学院图书馆</view>
+      </view>
+
+      <view class="card-info">
+        <view class="text-info">
+          <view class="name">{{userInfo.name}}</view>
+          <view class="dept">{{userInfo.department}}</view>
+          <view class="role-tag">{{userInfo.type}}</view>
+        </view>
+        <image class="user-avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+      </view>
+
+      <view class="card-footer">
+        <text class="label">NO.</text>
+        <text class="card-number">{{userInfo.cardNumber}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="code-section card">
+    <view class="code-title">借书/门禁请扫码</view>
+    
+    <view class="barcode-wrap">
+      <image class="barcode" src="/images/ecard/barcode-example.png" mode="aspectFit"></image>
+      <text class="code-text">{{userInfo.cardNumber}}</text>
+    </view>
+
+    <view class="qrcode-wrap">
+      <image class="qrcode" src="/images/ecard/qrcode-example.jpg" mode="aspectFit"></image>
+    </view>
+
+    <view class="refresh-btn" bindtap="refreshCode">
+      <text>🔄 每分钟自动刷新</text>
+    </view>
+  </view>
+
+  <view class="tips">
+    <text>⚠️ 注意事项：\n1. 请将屏幕亮度调至最高以确保扫码成功\n2. 截屏无法使用，请实时刷新\n3. 仅限本人使用，出借借阅证属于违规行为</text>
+  </view>
+
+</view>

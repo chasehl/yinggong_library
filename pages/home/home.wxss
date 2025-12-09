@@ -124,55 +124,99 @@
   color: #333;
 }
 
-/* ================= 为你推荐 ================= */
+/* --- 为你推荐部分 --- */
 .recommend-section {
-  padding-bottom: 16rpx;
+  padding-bottom: 20rpx;
 }
 
 .section-header {
-  margin-bottom: 16rpx;
+  margin-bottom: 20rpx;
+  border-left: 8rpx solid #4a6fa5; /* 装饰竖线 */
+  padding-left: 16rpx;
 }
 
 .section-title {
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-weight: bold;
-  color: #444;
-}
-
-.recommend-scroll {
-  white-space: nowrap;
-}
-
-.book-card {
-  display: inline-block;
-  width: 220rpx;
-  margin-right: 20rpx;
-}
-
-.book-cover {
-  width: 220rpx;
-  height: 300rpx;
-  border-radius: 10rpx;
-  background: #eee;
-}
-
-.book-title {
-  display: block;
-  font-size: 26rpx;
-  margin-top: 8rpx;
   color: #333;
+}
+
+/* 网格布局容器 */
+.book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* 两端对齐，中间留空 */
+}
+
+/* 单个书籍卡片 (3列布局，每个宽度约30%) */
+.grid-item {
+  width: 31%; 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+
+/* 封面容器：固定高度，防止图片参差不齐 */
+.cover-wrapper {
+  width: 100%;
+  height: 260rpx; /* 根据需要调整高度 */
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.1);
+  margin-bottom: 12rpx;
+  background-color: #f0f0f0;
+}
+
+.grid-cover {
+  width: 100%;
+  height: 100%;
+}
+
+/* 书名：限制显示1行，超出省略 */
+.grid-title {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4rpx;
+}
+
+/* 作者：限制显示1行 */
+.grid-author {
+  font-size: 22rpx;
+  color: #999;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.book-author {
+/* --- 底部按钮样式 --- */
+.footer-action {
+  display: flex;
+  justify-content: center;
+  padding-top: 10rpx;
+}
+
+.load-btn {
+  font-size: 24rpx;
+  color: #4a6fa5;
+  padding: 10rpx 30rpx;
+  background: #f0f6ff;
+  border-radius: 30rpx;
+}
+
+.no-more {
   font-size: 22rpx;
-  color: #888;
-  margin-top: 4rpx;
+  color: #ccc;
 }
 
 /* ================= 底部占位 ================= */
 .bottom-space {
   height: 40rpx;
+}
+
+.top-space{
+  height:40rpx;
 }

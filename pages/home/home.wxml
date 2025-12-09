@@ -1,5 +1,6 @@
 <!-- pages/home/home.wxml -->
 <scroll-view class="page" scroll-y="true" enable-back-to-top="true">
+<view class="top-space"></view>
 <!-- 顶部状态栏：左校徽 + 右标题 -->
 <view class="status-bar card">
   <image src="/images/default-avatar.png" class="logo" mode="aspectFit" />
@@ -16,11 +17,11 @@
 
 <!-- 1x2 宫格（扫一扫 + 电子借阅证） -->
 <view class="card grid-1x2">
-  <view class="grid-cell" bindtap="toScan" data-role="scan">
+  <view class="grid-cell" bindtap="goToScanBorrow" data-role="scan">
     <image src="/images/scan-icon.png" class="icon" mode="aspectFit" />
     <text class="cell-text">扫一扫</text>
   </view>
-  <view class="grid-cell" bindtap="toECard" data-role="ecard">
+  <view class="grid-cell" bindtap="goToEcard" data-role="ecard">
     <image src="/images/ecard-icon.png" class="icon" mode="aspectFit" />
     <text class="cell-text">电子借阅证</text>
   </view>
@@ -75,21 +76,31 @@
   </view>
 </view>
 
-<!-- 为你推荐：横向滚动书籍卡片（通过 wx:for 渲染） -->
 <view class="card recommend-section">
   <view class="section-header">
     <text class="section-title">为你推荐</text>
   </view>
 
-  <scroll-view class="recommend-scroll" scroll-x="true" scroll-with-animation="true">
-    <block wx:for="{{recommend}}" wx:key="id" wx:for-item="book">
-      <view class="book-card" bindtap="openBookDetail" data-id="{{book.id}}">
-        <image src="{{book.cover}}" class="book-cover" mode="aspectFill" />
-        <text class="book-title" space="nbsp">{{book.title}}</text>
-        <text class="book-author small">{{book.author}}</text>
+  <view class="book-grid">
+    <block wx:for="{{displayBooks}}" wx:key="id" wx:for-item="book">
+      <view class="grid-item" bindtap="openBookDetail" data-id="{{book.id}}">
+        <view class="cover-wrapper">
+          <image src="{{book.cover}}" class="grid-cover" mode="aspectFill" />
+        </view>
+        <text class="grid-title">{{book.title}}</text>
+        <text class="grid-author">{{book.author}}</text>
       </view>
     </block>
-  </scroll-view>
+  </view>
+
+  <view class="footer-action">
+    <view wx:if="{{hasMore}}" class="load-btn" bindtap="loadMoreBooks">
+      点击加载更多
+    </view>
+    <view wx:else class="no-more">
+      - 到底啦，没有更多了 -
+    </view>
+  </view>
 </view>
 
 <!-- 页面底部预留（或导航占位） -->
