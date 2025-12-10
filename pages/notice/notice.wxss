@@ -1,1 +1,186 @@
 /* pages/notice/notice.wxss */
+page {
+  background-color: #f6f7f9;
+  height: 100%;
+}
+
+.container {
+  padding:0%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* 确保容器宽度占满 */
+}
+
+/* --- 1. 顶部搜索栏 (优化版) --- */
+.header-search {
+  background: #fff;
+  /* 减少左右 padding，从 30rpx 改为 20rpx，或者更小，让搜索框更宽 */
+  padding: 20rpx; 
+  width: 100%;
+  box-sizing: border-box; /* 关键：防止 padding 撑大导致换行或滚动条 */
+}
+
+.search-box {
+  background: #f0f2f5;
+  height: 80rpx; /* 稍微增高一点，从 72 -> 80，视觉上更大气 */
+  border-radius: 40rpx; /* 圆角随高度调整 */
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx; /* 搜索框内部的左右留白 */
+  width: 100%;      /* 强制占满 header-search 的剩余空间 */
+  box-sizing: border-box;
+  
+  z-index: 10;/* 加上这句，确保清除按钮可以被点击到 */
+}
+
+.search-box icon {
+  margin-right: 10rpx; /* 图标和文字的间距 */
+}
+
+.search-input {
+  flex: 1; /* 霸占剩余所有宽度 */
+  font-size: 28rpx;
+  color: #333;
+  height: 100%;
+}
+
+/* --- 2. 分类 Tabs (优化版) --- */
+.tabs-wrapper {
+  display: flex;
+  width: 100%; /* 强制宽度 100% */
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+  padding: 0; /* 🔴 去掉左右 padding，让 Tab 铺满整个屏幕宽度 */
+  box-sizing: border-box;
+}
+
+.tab-item {
+  flex: 1; /* 🔴 关键：每个 Tab 等分宽度 (1:1:1:1) */
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+  display: flex;        /* 辅助居中 */
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-item.active {
+  color: #4a6fa5;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+/* 底部蓝色短横线 */
+.tab-line {
+  position: absolute;
+  bottom: 0;
+  /* 不需要 left 50% 这种复杂写法，直接定位于底部中心即可 */
+  width: 40rpx;
+  height: 6rpx;
+  background: #4a6fa5;
+  border-radius: 4rpx;
+}
+
+/* --- 下面列表样式保持不变，确保不出错建议一并复制 --- */
+
+.content-scroll {
+  flex: 1;
+  width: 100%; /* 确保列表也占满宽 */
+  padding: 20rpx;
+  box-sizing: border-box;
+  overflow-y: hidden; /* 防止双重滚动条 */
+}
+
+.notice-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.03); /* 加一点微弱阴影增加立体感 */
+}
+
+.notice-main {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.notice-title-wrap {
+  margin-bottom: 16rpx;
+  line-height: 1.5;
+}
+
+.title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.title.read {
+  color: #999;
+}
+
+.tag {
+  font-size: 20rpx;
+  padding: 2rpx 8rpx;
+  border-radius: 6rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+  position: relative;
+  top: -2rpx;
+}
+
+.tag.top {
+  background: #fff0f0;
+  color: #e74c3c;
+  border: 1rpx solid #ffdcdc;
+}
+
+.tag.new {
+  background: #f0f6ff;
+  color: #4a6fa5;
+  border: 1rpx solid #ddebfd;
+}
+
+.notice-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.notice-img {
+  width: 160rpx; /* 稍微加大一点图片宽度 */
+  height: 110rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.notice-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.loading-tips {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+/* 新增：清除按钮样式 */
+.clear-btn {
+  padding: 0 10rpx;
+  height: 100%;
+  display: flex; /* 让图标垂直居中 */
+  align-items: center;
+  justify-content: center;
+  z-index: 11; /* 层级比输入框高 */
+}

@@ -5,11 +5,12 @@
     "pages/me/me",
     "pages/booklist/booklist",
     "pages/notice/notice",
-    "pages/ecard/ecard"
+    "pages/ecard/ecard",
+    "pages/notice-detail/notice-detail"
   ],
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#4a6fa5", 
+    "selectedColor": "#4a6fa5",
     "backgroundColor": "#ffffff",
     "list": [
       {

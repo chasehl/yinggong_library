@@ -1,0 +1,54 @@
+/* pages/notice-detail/notice-detail.wxss */
+page {
+  background-color: #fff;
+}
+
+.container {
+  padding: 30rpx;
+  background: #fff;
+}
+
+/* 标题区 */
+.article-header {
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 20rpx;
+}
+
+.meta {
+  font-size: 24rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.source {
+  color: #4a6fa5;
+  margin-right: 20rpx;
+}
+
+.date {
+  margin-right: 20rpx;
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background: #eee;
+  margin-bottom: 30rpx;
+}
+
+/* 正文区 */
+.article-content {
+  font-size: 32rpx;
+  color: #333;
+  line-height: 1.8;
+  text-align: justify; /* 两端对齐，阅读体验更好 */
+  padding-bottom: 60rpx;
+}

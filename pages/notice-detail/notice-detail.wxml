@@ -1,0 +1,19 @@
+<!--pages/notice-detail/notice-detail.wxml-->
+<view class="container">
+  
+  <view class="article-header">
+    <view class="title">{{detail.title}}</view>
+    <view class="meta">
+      <text class="source">{{detail.source}}</text>
+      <text class="date">{{detail.date}}</text>
+      <text class="views">阅读 {{detail.views}}</text>
+    </view>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="article-content">
+    <rich-text nodes="{{detail.content}}"></rich-text>
+  </view>
+
+</view>

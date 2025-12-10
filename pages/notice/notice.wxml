@@ -1,2 +1,63 @@
 <!--pages/notice/notice.wxml-->
-<text>pages/notice/notice.wxml</text>
+<view class="container">
+  
+  <view class="header-search">
+    <view class="search-box">
+      <icon type="search" size="16" color="#999"></icon>
+      <input 
+      class="search-input" 
+      placeholder="搜索公告标题..." 
+      placeholder-class="ph-style" 
+      confirm-type="search"
+      value="{{searchKeyword}}" 
+      bindinput="onSearchInput"
+      bindconfirm="onSearch"
+      />
+      <view class="clear-btn" wx:if="{{searchKeyword.length > 0}}" bindtap="onClearSearch">
+        <icon type="clear" size="16" color="#ccc"></icon>
+      </view>
+    </view>
+  </view>
+
+  <view class="tabs-wrapper">
+    <block wx:for="{{categories}}" wx:key="id">
+      <view class="tab-item {{currentTab === index ? 'active' : ''}}" 
+            bindtap="switchTab" 
+            data-index="{{index}}">
+        <text>{{item.name}}</text>
+        <view class="tab-line" wx:if="{{currentTab === index}}"></view>
+      </view>
+    </block>
+  </view>
+
+  <scroll-view class="content-scroll" scroll-y="true" bindscrolltolower="loadMore">
+    
+    <block wx:for="{{noticeList}}" wx:key="id">
+      <view class="notice-card" bindtap="goToDetail" data-id="{{item.id}}">
+        
+        <view class="notice-main">
+          <view class="notice-title-wrap">
+            <text class="tag top" wx:if="{{item.isTop}}">置顶</text>
+            <text class="tag new" wx:elif="{{item.isNew}}">NEW</text>
+            <text class="title {{item.read ? 'read' : ''}}">{{item.title}}</text>
+          </view>
+          
+          <view class="notice-meta">
+            <text class="date">{{item.date}}</text>
+            <text class="views">👁 {{item.views}}</text>
+          </view>
+        </view>
+
+        <view class="notice-img" wx:if="{{item.cover}}">
+          <image src="{{item.cover}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </block>
+
+    <view class="loading-tips">
+      <text wx:if="{{hasMore}}">正在加载...</text>
+      <text wx:else>- 仅展示最近半年的公告 -</text>
+    </view>
+  
+  </scroll-view>
+</view>

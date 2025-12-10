@@ -12,62 +12,62 @@ Page({
         id: 1,
         title: "三体：地球往事",
         author: "刘慈欣",
-        cover: "https://img1.doubanio.com/view/subject/l/public/s2768378.jpg" 
+        cover: "/images/booklist/bookCover1.jpg" 
       },
       {
         id: 2,
         title: "乡土中国",
         author: "费孝通",
-        cover: "https://img9.doubanio.com/view/subject/l/public/s4085836.jpg"
+        cover: "/images/booklist/bookCover2.jpg"
       },
       {
         id: 3,
         title: "活着",
         author: "余华",
-        cover: "https://img9.doubanio.com/view/subject/l/public/s29869926.jpg"
+        cover: "/images/booklist/bookCover3.jpg"
       },
       {
         id: 4,
         title: "深度学习",
         author: "Ian Goodfellow",
-        cover: "https://img1.doubanio.com/view/subject/l/public/s29518349.jpg"
+        cover: "/images/booklist/bookCover4.jpg"
       },
       {
         id: 5,
         title: "明朝那些事儿",
         author: "当年明月",
-        cover: "https://img1.doubanio.com/view/subject/l/public/s29399938.jpg"
+        cover: "/images/booklist/bookCover5.jpg"
       },
       {
         id: 6,
         title: "非暴力沟通",
         author: "马歇尔·卢森堡",
-        cover: "https://img3.doubanio.com/view/subject/l/public/s29710777.jpg"
+        cover: "/images/booklist/bookCover6.jpg"
       },
       // --- 以下是点击加载更多后显示的 ---
       {
         id: 7,
         title: "百年孤独",
         author: "加西亚·马尔克斯",
-        cover: "https://img1.doubanio.com/view/subject/l/public/s27237850.jpg"
+        cover: "/images/booklist/bookCover7.jpg"
       },
       {
         id: 8,
         title: "Python编程",
         author: "埃里克·马瑟斯",
-        cover: "https://img9.doubanio.com/view/subject/l/public/s28891775.jpg"
+        cover: "/images/booklist/bookCover8.jpg"
       },
       {
         id: 9,
         title: "月亮与六便士",
         author: "毛姆",
-        cover: "https://img1.doubanio.com/view/subject/l/public/s29634528.jpg"
+        cover: "/images/booklist/bookCover9.jpg"
       },
       {
         id: 10,
         title: "置身事内",
         author: "兰小欢",
-        cover: "https://img3.doubanio.com/view/subject/l/public/s33956867.jpg"
+        cover: "/images/booklist/bookCover10.jpg"
       }
     ]
   },
