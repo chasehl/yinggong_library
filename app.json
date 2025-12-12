@@ -6,7 +6,13 @@
     "pages/booklist/booklist",
     "pages/notice/notice",
     "pages/ecard/ecard",
-    "pages/notice-detail/notice-detail"
+    "pages/notice-detail/notice-detail",
+    "pages/search/search",
+    "pages/myborrow/myborrow",
+    "pages/myhistory/myhistory",
+    "pages/recommend/recommend",
+    "pages/static-info/static-info",
+    "pages/login/login"
   ],
   "tabBar": {
     "color": "#999999",

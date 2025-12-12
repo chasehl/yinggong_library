@@ -1,0 +1,9 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <image class="logo" src="/images/default-avatar.png" mode="aspectFit"></image>
+  <view class="title">书香应工</view>
+  <view class="subtitle">应用工程学院图书馆服务平台</view>
+
+  <button class="login-btn" bindtap="handleLogin">微信一键登录</button>
+  <button class="cancel-btn" bindtap="goBack">暂不登录</button>
+</view>

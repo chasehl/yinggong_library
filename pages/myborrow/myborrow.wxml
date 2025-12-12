@@ -1,0 +1,75 @@
+<view class="container">
+  
+  <view class="header-card">
+    <view class="header-info">
+      <view class="info-item">
+        <text class="num">{{borrowList.length}}</text>
+        <text class="label">当前借阅</text>
+      </view>
+      <view class="divider"></view>
+      <view class="info-item">
+        <text class="num danger">{{overdueCount}}</text>
+        <text class="label">已逾期</text>
+      </view>
+      <view class="divider"></view>
+      <view class="info-item">
+        <text class="num warning">{{expiringCount}}</text>
+        <text class="label">即将到期</text>
+      </view>
+    </view>
+    <view class="header-tip">💡 提示：每本书仅可续借一次，逾期图书不可续借。</view>
+  </view>
+
+  <scroll-view class="list-container" scroll-y="true">
+    <block wx:for="{{borrowList}}" wx:key="id">
+      <view class="book-card">
+        
+        <view class="card-body" bindtap="goToBookDetail" data-id="{{item.id}}">
+          <image class="book-cover" src="{{item.cover}}" mode="aspectFill"></image>
+          
+          <view class="book-info">
+            <view class="title-row">
+              <text class="title">{{item.title}}</text>
+            </view>
+            <text class="author">{{item.author}}</text>
+            
+            <view class="meta-row">
+              <text>借阅日：{{item.borrowDate}}</text>
+            </view>
+            <view class="meta-row">
+              <text>应还日：{{item.dueDate}}</text>
+            </view>
+
+            <view class="status-row">
+              <text class="tag tag-danger" wx:if="{{item.daysLeft < 0}}">已逾期 {{-item.daysLeft}} 天</text>
+              <text class="tag tag-warning" wx:elif="{{item.daysLeft <= 3}}">剩余 {{item.daysLeft}} 天</text>
+              <text class="tag tag-normal" wx:else>剩余 {{item.daysLeft}} 天</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="card-action">
+          <view class="renew-status" wx:if="{{item.renewed}}">已续借过</view>
+          <view class="renew-status" wx:else>可续借1次</view>
+
+          <button 
+            class="renew-btn {{ (item.daysLeft < 0 || item.renewed) ? 'disabled' : ''}}" 
+            size="mini" 
+            bindtap="handleRenew" 
+            data-index="{{index}}"
+            disabled="{{item.daysLeft < 0 || item.renewed}}"
+          >
+            {{item.daysLeft < 0 ? '需归还' : (item.renewed ? '已续借' : '一键续借')}}
+          </button>
+        </view>
+
+      </view>
+    </block>
+
+    <view class="empty-state" wx:if="{{borrowList.length === 0}}">
+      <image src="/images/empty-box.png" mode="widthFix" class="empty-img" />
+      <text>当前没有在借图书</text>
+    </view>
+  </scroll-view>
+
+</view>

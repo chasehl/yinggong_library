@@ -1,0 +1,76 @@
+<view class="search-page">
+  
+  <view class="sticky-header">
+    <view class="search-bar-capsule">
+      
+      <picker 
+        bindchange="bindTypeChange" 
+        value="{{typeIndex}}" 
+        range="{{searchTypes}}" 
+        class="picker-container"
+      >
+        <view class="picker-inner">
+          <text class="picker-text">{{searchTypes[typeIndex]}}</text>
+          <text class="picker-arrow">▼</text> </view>
+      </picker>
+
+      <view class="vertical-line"></view>
+
+      <input 
+        class="search-input" 
+        placeholder="搜索..." 
+        confirm-type="search"
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearch"
+      />
+      
+      <view class="clear-btn" wx:if="{{searchKeyword}}" bindtap="clearSearch">
+        <icon type="clear" size="14" color="#ccc"/>
+      </view>
+    </view>
+    
+    <view class="search-btn" bindtap="onSearch">搜索</view>
+  </view>
+
+  <scroll-view class="result-scroll" scroll-y="true">
+    
+    <view class="result-section" wx:if="{{serviceResults.length > 0}}">
+      <view class="section-title">功能服务</view>
+      <view class="service-grid">
+        <block wx:for="{{serviceResults}}" wx:key="key">
+          <view class="service-item" bindtap="handleServiceTap" data-url="{{item.url}}">
+            <image src="{{item.icon}}" class="service-icon" mode="aspectFit" />
+            <text class="service-name">{{item.name}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="result-section" wx:if="{{bookResults.length > 0}}">
+      <view class="section-title">馆藏资源</view>
+      <view class="book-list">
+        <block wx:for="{{bookResults}}" wx:key="id">
+          <view class="book-item" bindtap="goToBookDetail" data-id="{{item.id}}">
+            <image class="book-cover" src="{{item.cover}}" mode="aspectFill"></image>
+            <view class="book-info">
+              <view class="book-title">
+                <text>{{item.title}}</text>
+                <text class="book-type-tag">{{item.type}}</text>
+              </view>
+              <view class="book-meta">作者：{{item.author}}</view>
+              <view class="book-meta">出版社：{{item.publisher}}</view>
+              <view class="book-meta">索书号：{{item.callNumber}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="footer-tips">- 已显示全部结果 -</view>
+    </view>
+
+    <view wx:if="{{hasSearched && serviceResults.length === 0 && bookResults.length === 0}}" class="empty-state">
+      <text>🤔 未找到相关内容，换个词试试？</text>
+    </view>
+
+  </scroll-view>
+</view>

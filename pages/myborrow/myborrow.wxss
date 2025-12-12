@@ -1,0 +1,188 @@
+/* pages/my-borrow/my-borrow.wxss */
+page {
+  background-color: #f6f7f9;
+}
+
+.container {
+  padding: 20rpx;
+  padding-bottom: 40rpx;
+}
+
+/* --- 顶部概览 --- */
+.header-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx 20rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.03);
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divider {
+  width: 2rpx;
+  height: 40rpx;
+  background: #eee;
+}
+
+.num {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4rpx;
+}
+
+.num.danger { color: #e74c3c; }
+.num.warning { color: #f39c12; }
+
+.label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.header-tip {
+  background: #fdf6ec;
+  color: #e6a23c;
+  font-size: 22rpx;
+  padding: 12rpx 20rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+/* --- 图书列表 --- */
+.book-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+}
+
+.card-body {
+  padding: 24rpx;
+  display: flex;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.book-cover {
+  width: 140rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background: #eee;
+  flex-shrink: 0;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.1);
+}
+
+.book-info {
+  flex: 1;
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+}
+
+.author {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 4rpx;
+  margin-bottom: 10rpx;
+}
+
+.meta-row {
+  font-size: 22rpx;
+  color: #999;
+  line-height: 1.5;
+}
+
+/* 状态标签 */
+.status-row {
+  margin-top: 10rpx;
+}
+
+.tag {
+  font-size: 20rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 6rpx;
+  font-weight: 500;
+}
+
+.tag-normal {
+  background: #eaf2ff;
+  color: #4a6fa5;
+}
+
+.tag-warning {
+  background: #fdf6ec;
+  color: #e6a23c;
+}
+
+.tag-danger {
+  background: #fef0f0;
+  color: #f56c6c;
+}
+
+/* --- 底部操作栏 --- */
+.card-action {
+  padding: 16rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.renew-status {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 续借按钮样式 */
+.renew-btn {
+  margin: 0 !important;
+  background: #fff;
+  color: #4a6fa5;
+  border: 1rpx solid #4a6fa5;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+  padding: 0 30rpx;
+  line-height: 1.8;
+}
+
+.renew-btn.disabled {
+  background: #f5f5f5;
+  color: #ccc;
+  border-color: #eee;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100rpx;
+}
+.empty-img {
+  width: 200rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.5;
+}
+.empty-state text {
+  color: #999;
+  font-size: 28rpx;
+}

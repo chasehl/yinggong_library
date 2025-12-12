@@ -145,7 +145,7 @@ Page({
         console.log('扫码失败', err);
       }
     });
-  }
+  },
   // // “扫一扫”按钮的点击事件处理函数
   // toScan: function() {
   //   // 首先，可检查并获取相机权限（良好的用户体验）
@@ -219,4 +219,24 @@ Page({
   //   const isbnRegex = /^(97[89]\d{10}|\d{9}[\dX])$/;
   //   return isbnRegex.test(code);
   // }
+
+  //顶部全功能搜索栏（馆藏资源+服务）
+  toSearch(){
+    wx.navigateTo({
+      //mode=all 表示可以搜索资源+服务
+      url:'/pages/search/search?mode=all',
+    });
+  },
+  //馆藏检索功能，只能搜索资源
+  goCatalog(){
+    wx.navigateTo({
+      //mode=resource 表示只能搜索资源
+      url:'/pages/search/search?mode=resource',
+    });
+  },
+  goMyBorrow(){
+    wx.navigateTo({
+      url:'/pages/myborrow/myborrow',
+    });
+  }
 })

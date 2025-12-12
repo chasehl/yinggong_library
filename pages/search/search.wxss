@@ -1,0 +1,188 @@
+/* pages/search/search.wxss */
+page {
+  background-color: #f6f7f9;
+  height: 100%;
+}
+
+.search-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* --- 顶部搜索栏 --- */
+.sticky-header {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.05);
+  z-index: 99;
+}
+
+/* 胶囊容器 */
+.search-bar-capsule {
+  flex: 1;
+  height: 80rpx;
+  background: #f0f2f5;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 10rpx 0 24rpx; /* 左内边距给picker，右边给clear按钮 */
+}
+
+/* 左侧下拉 */
+.picker-container {
+  flex-shrink: 0;
+}
+
+.picker-inner {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #333;
+  padding-right: 16rpx;
+}
+
+.picker-arrow {
+  font-size: 20rpx;
+  color: #999;
+  margin-left: 8rpx;
+}
+
+/* 中间分割线 */
+.vertical-line {
+  width: 2rpx;
+  height: 32rpx;
+  background: #ccc;
+  margin-right: 16rpx;
+}
+
+/* 右侧输入框 */
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  height: 100%;
+}
+
+.clear-btn {
+  padding: 10rpx;
+}
+
+.search-btn {
+  margin-left: 24rpx;
+  font-size: 30rpx;
+  color: #4a6fa5;
+  font-weight: bold;
+}
+
+/* --- 结果区域 --- */
+.result-scroll {
+  flex: 1;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.result-section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  border-left: 8rpx solid #4a6fa5;
+  padding-left: 16rpx;
+}
+
+/* 1. 服务宫格 (横向排布) */
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx; /* 图标间距 */
+}
+
+.service-item {
+  width: 150rpx; /* 固定宽度，一行大约放4个 */
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.service-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 12rpx;
+}
+
+.service-name {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 2. 图书列表 (竖向) */
+.book-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+}
+
+.book-cover {
+  width: 140rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background: #eee;
+  flex-shrink: 0;
+  margin-right: 24rpx;
+}
+
+.book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.book-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.book-type-tag {
+  font-size: 20rpx;
+  color: #4a6fa5;
+  border: 1rpx solid #4a6fa5;
+  padding: 2rpx 6rpx;
+  border-radius: 6rpx;
+  margin-left: 12rpx;
+  font-weight: normal;
+}
+
+.book-meta {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.footer-tips, .empty-state {
+  text-align: center;
+  color: #ccc;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+}
