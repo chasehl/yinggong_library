@@ -1,0 +1,66 @@
+<view class="container">
+  
+  <view class="status-card {{isOpen ? 'bg-blue' : 'bg-grey'}}">
+    <view class="status-icon-wrap">
+      <icon type="{{isOpen ? 'success' : 'waiting'}}" size="40" color="#fff" />
+    </view>
+    <view class="status-text">
+      <text class="main-status">{{isOpen ? '当前开放中' : '当前已闭馆'}}</text>
+      <text class="sub-status">{{statusTip}}</text>
+    </view>
+  </view>
+
+  <view class="card schedule-card">
+    <view class="card-header">
+      <view class="blue-line"></view>
+      <text>总馆开放时间</text>
+    </view>
+    
+    <view class="schedule-list">
+      <view class="th">
+        <text>日期</text>
+        <text>时间</text>
+      </view>
+      
+      <block wx:for="{{weekSchedule}}" wx:key="day">
+        <view class="tr {{item.isToday ? 'today' : ''}}">
+          <view class="td day-col">
+            <text>{{item.day}}</text>
+            <text class="today-tag" wx:if="{{item.isToday}}">今天</text>
+          </view>
+          <view class="td time-col">{{item.time}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="card info-card">
+    <view class="card-header">
+      <view class="blue-line"></view>
+      <text>分区域开放说明</text>
+    </view>
+
+    <view class="area-item">
+      <view class="area-name">自习室 (1F-4F)</view>
+      <view class="area-time">07:00 - 22:30</view>
+    </view>
+    <view class="divider"></view>
+    
+    <view class="area-item">
+      <view class="area-name">总服务台 (人工借还)</view>
+      <view class="area-time">08:30 - 17:30</view>
+    </view>
+    <view class="divider"></view>
+
+    <view class="area-item">
+      <view class="area-name">电子阅览室</view>
+      <view class="area-time">09:00 - 21:00 (周三下午闭馆)</view>
+    </view>
+
+    <view class="notice-box">
+      <text class="notice-title">⚠️ 节假日安排</text>
+      <text class="notice-content">法定节假日及寒暑假开放时间将另行通知，请关注图书馆首页公告。</text>
+    </view>
+  </view>
+
+</view>

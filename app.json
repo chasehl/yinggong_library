@@ -12,7 +12,12 @@
     "pages/myhistory/myhistory",
     "pages/recommend/recommend",
     "pages/static-info/static-info",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/my-reserve/my-reserve",
+    "pages/rule/rule",
+    "pages/history/history",
+    "pages/map/map",
+    "pages/opentime/opentime"
   ],
   "tabBar": {
     "color": "#999999",

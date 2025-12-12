@@ -1,0 +1,193 @@
+/* pages/opentime/opentime.wxss */
+page {
+  background-color: #f6f7f9;
+}
+
+.container {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* --- 1. 状态卡片 --- */
+.status-card {
+  border-radius: 16rpx;
+  padding: 40rpx;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+  width:80%;
+}
+
+.bg-blue {
+  background: linear-gradient(135deg, #4a6fa5, #6b8cce);
+}
+
+.bg-grey {
+  background: linear-gradient(135deg, #57606f, #747d8c);
+}
+
+.status-icon-wrap {
+  margin-right: 30rpx;
+}
+
+.status-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-status {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.sub-status {
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+/* --- 公共卡片样式 --- */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+  width:80%;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.blue-line {
+  width: 8rpx;
+  height: 30rpx;
+  background-color: #4a6fa5;
+  margin-right: 16rpx;
+  border-radius: 4rpx;
+}
+
+.card-header text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* --- 2. 时间表 --- */
+.schedule-list {
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.th {
+  background: #f8f9fa;
+  display: flex;
+  padding: 20rpx;
+  font-weight: bold;
+  color: #666;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.tr {
+  display: flex;
+  padding: 24rpx 20rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+/* 高亮今天 */
+.tr.today {
+  background-color: #f0f6ff;
+}
+
+.tr.today .day-col text {
+  color: #4a6fa5;
+  font-weight: bold;
+}
+
+.tr.today .time-col {
+  color: #4a6fa5;
+  font-weight: bold;
+}
+
+.td {
+  flex: 1;
+}
+
+.day-col {
+  display: flex;
+  align-items: center;
+}
+
+.today-tag {
+  font-size: 20rpx;
+  background: #4a6fa5;
+  color: #fff;
+  padding: 2rpx 8rpx;
+  border-radius: 6rpx;
+  margin-left: 10rpx;
+}
+
+.time-col {
+  text-align: right;
+}
+
+/* --- 3. 分区域说明 --- */
+.area-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+}
+
+.area-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.area-time {
+  font-size: 28rpx;
+  color: #666;
+  font-weight: 500;
+}
+
+.divider {
+  height: 1rpx;
+  background: #f0f0f0;
+  margin: 16rpx 0;
+}
+
+/* 节假日提示 */
+.notice-box {
+  background: #fdf6ec;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-top: 30rpx;
+}
+
+.notice-title {
+  display: block;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #e6a23c;
+  margin-bottom: 8rpx;
+}
+
+.notice-content {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.5;
+}

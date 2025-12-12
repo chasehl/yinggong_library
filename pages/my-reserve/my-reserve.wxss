@@ -1,0 +1,159 @@
+/* pages/my-reserve/my-reserve.wxss */
+page {
+  background-color: #f6f7f9;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  padding:30rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Tab 栏 --- */
+.tabs-header {
+  background: #fff;
+  display: flex;
+  width:100%;
+  border-bottom: 1rpx solid #eee;
+  padding: 0 20rpx;
+  flex-shrink: 0;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #4a6fa5;
+  font-weight: bold;
+}
+
+.tab-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 6rpx;
+  background: #4a6fa5;
+  border-radius: 4rpx;
+}
+
+/* --- 列表区域 --- */
+.list-content {
+  flex: 1;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.reserve-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+  position: relative;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+}
+
+.book-cover {
+  width: 140rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.card-info {
+  flex: 1;
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  flex: 1;
+  margin-right: 10rpx;
+}
+
+/* 状态标签样式 */
+.status-tag {
+  font-size: 20rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 6rpx;
+  white-space: nowrap;
+}
+.status-green { background: #e1f3d8; color: #67c23a; }
+.status-orange { background: #faecd8; color: #e6a23c; }
+.status-grey { background: #f4f4f5; color: #909399; }
+
+.author {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+/* 元数据区域 */
+.meta-box {
+  background: #f8f9fa;
+  padding: 16rpx;
+  border-radius: 8rpx;
+}
+
+.meta-row {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  display: flex;
+}
+.meta-row:last-child { margin-bottom: 0; }
+
+.meta-row .label { color: #999; width: 130rpx;}
+.meta-row .highlight { color: #4a6fa5; font-weight: bold; }
+
+/* 取消按钮（绝对定位或流式布局均可，这里用流式放在信息下方） */
+.action-area {
+  position: absolute;
+  right: 24rpx;
+  bottom: 24rpx;
+}
+
+.cancel-btn {
+  background: #fff !important;
+  color: #999 !important;
+  border: 1rpx solid #ddd !important;
+  font-size: 22rpx !important;
+  padding: 0 20rpx;
+  border-radius: 24rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  padding-top: 100rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.empty-img { width: 200rpx; margin-bottom: 20rpx; opacity: 0.5; }
+.empty-state text { color: #999; font-size: 28rpx; }

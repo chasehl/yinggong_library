@@ -1,0 +1,54 @@
+<!--pages/rule/rule.wxml-->
+<view class="container">
+  
+  <view class="header-banner">
+    <view class="header-content">
+      <text class="header-title">图书借阅管理规定</text>
+      <text class="header-sub">Creating a scholarly campus</text>
+    </view>
+    <image src="/images/rule-bg.png" class="header-bg" mode="aspectFill" wx:if="{{false}}"></image>
+  </view>
+
+  <view class="card table-card">
+    <view class="card-title">
+      <view class="title-bar"></view>
+      <text>身份与权限</text>
+    </view>
+    
+    <view class="permission-table">
+      <view class="tr header-row">
+        <view class="th">读者类别</view>
+        <view class="th">借阅册数</view>
+        <view class="th">借阅期限</view>
+      </view>
+      <block wx:for="{{permissions}}" wx:key="role">
+        <view class="tr">
+          <view class="td role">{{item.role}}</view>
+          <view class="td">{{item.limit}} 本</view>
+          <view class="td">{{item.days}} 天</view>
+        </view>
+      </block>
+    </view>
+    <view class="table-tip">* 注：每本书仅限续借 1 次，期限 30 天。</view>
+  </view>
+
+  <view class="rules-container">
+    <block wx:for="{{rules}}" wx:key="index">
+      <view class="card rule-item">
+        <view class="rule-header">
+          <view class="index-badge">{{index + 1}}</view>
+          <text class="rule-title">{{item.title}}</text>
+        </view>
+        <view class="rule-content">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="footer-contact">
+    <text>如有疑问，请咨询图书馆总服务台</text>
+    <text>电话：010-88888888</text>
+  </view>
+
+</view>

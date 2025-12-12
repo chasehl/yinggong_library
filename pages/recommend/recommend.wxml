@@ -1,2 +1,64 @@
-<!--pages/recommend/recommend.wxml-->
-<text>pages/recommend/recommend.wxml</text>
+<view class="container">
+
+<view class="banner-box">
+  <image class="banner-img" src="/images/banner-reading.png" mode="aspectFill" wx:if="{{false}}"></image>
+  <view class="banner-placeholder" wx:else>
+    <view class="banner-text">
+      <text class="month">DEC. 2025</text>
+      <text class="topic">在这个寒冬，\n温暖你的不仅仅是咖啡。</text>
+    </view>
+  </view>
+</view>
+
+<view class="tabs-header">
+  <block wx:for="{{tabs}}" wx:key="id">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      bindtap="switchTab" 
+      data-index="{{index}}"
+    >
+      <text>{{item.name}}</text>
+      <view class="tab-indicator" wx:if="{{currentTab === index}}"></view>
+    </view>
+  </block>
+</view>
+
+<scroll-view class="book-list" scroll-y="true">
+  <block wx:for="{{bookList}}" wx:key="id">
+    <view class="recommend-card" bindtap="goToDetail" data-id="{{item.id}}">
+      
+      <view class="cover-box">
+        <image src="{{item.cover}}" class="book-cover" mode="aspectFill" />
+        <view class="rank-badge" wx:if="{{index < 3 && currentTab === 2}}">NO.{{index+1}}</view>
+      </view>
+
+      <view class="info-box">
+        <view class="title-row">
+          <text class="title">{{item.title}}</text>
+          <view class="rating">
+            <text class="star">★</text>
+            <text class="score">{{item.score}}</text>
+          </view>
+        </view>
+        
+        <text class="author">{{item.author}}</text>
+        
+        <view class="reason-box">
+          <text class="quote-mark">“</text>
+          <text class="reason-text">{{item.reason}}</text>
+        </view>
+        
+        <view class="tags-row">
+          <block wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">
+            <text class="tag">{{tag}}</text>
+          </block>
+        </view>
+      </view>
+
+    </view>
+  </block>
+
+  <view class="footer-tips">- 遇见一本好书，就是遇见更好的自己 -</view>
+</scroll-view>
+
+</view>

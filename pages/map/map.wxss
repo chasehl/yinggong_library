@@ -1,0 +1,179 @@
+/* pages/map/map.wxss */
+page {
+  height: 100%;
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0; /* 覆盖全局 padding */
+}
+
+/* --- 左侧侧边栏 --- */
+.sidebar {
+  width: 180rpx;
+  height: 100%;
+  background-color: #f6f7f9;
+  border-right: 1rpx solid #eee;
+}
+
+.menu-item {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+/* 选中态 */
+.menu-item.active {
+  background-color: #fff;
+  color: #4a6fa5;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+/* 选中态左侧蓝条 */
+.menu-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30rpx;
+  bottom: 30rpx;
+  width: 8rpx;
+  background-color: #4a6fa5;
+  border-radius: 0 4rpx 4rpx 0;
+}
+
+/* --- 右侧内容区 --- */
+.content {
+  flex: 1;
+  height: 100%;
+  background-color: #fff;
+}
+
+.content-wrapper {
+  padding: 30rpx;
+}
+
+/* 标题与地图 */
+.floor-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.map-box {
+  width: 100%;
+  height: 300rpx;
+  background-color: #f8f8f8;
+  border-radius: 12rpx;
+  border: 1rpx solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40rpx;
+}
+
+.floor-map {
+  width: 100%;
+  height: 100%;
+}
+
+.zoom-tip {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 20rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 8rpx;
+}
+
+/* 分区卡片 */
+.section-card {
+  margin-bottom: 40rpx;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.blue-line {
+  width: 6rpx;
+  height: 28rpx;
+  background-color: #4a6fa5;
+  margin-right: 14rpx;
+  border-radius: 2rpx;
+}
+
+.card-header text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 图书分类网格 */
+.collection-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.collection-item {
+  width: 47%; /* 两列布局 */
+  background-color: #f0f6ff;
+  border-radius: 8rpx;
+  padding: 16rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-item .code {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #4a6fa5;
+  margin-bottom: 4rpx;
+}
+
+.collection-item .name {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.empty-tip {
+  font-size: 24rpx;
+  color: #999;
+  padding: 20rpx 0;
+}
+
+/* 设施列表 */
+.facility-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.facility-item {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+  font-size: 26rpx;
+  color: #555;
+}
+
+.facility-item icon {
+  margin-right: 10rpx;
+}

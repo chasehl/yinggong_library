@@ -238,5 +238,35 @@ Page({
     wx.navigateTo({
       url:'/pages/myborrow/myborrow',
     });
+  },
+  goMyReserve(){
+    wx.navigateTo({
+      url:'/pages/my-reserve/my-reserve',
+    });
+  },
+  showRule(){
+    wx.navigateTo({
+      url:'/pages/rule/rule',
+    });
+  },
+  goHistory(){
+    wx.navigateTo({
+      url:'/pages/history/history',
+    });
+  },
+  goMap(){
+    wx.navigateTo({
+      url:'/pages/map/map',
+    });
+  },
+  showOpenTime(){
+    wx.navigateTo({
+      url:'/pages/opentime/opentime',
+    });
+  },
+  goRecommend(){
+    wx.navigateTo({
+      url:'/pages/recommend/recommend',
+    });
   }
 })

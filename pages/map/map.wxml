@@ -1,0 +1,61 @@
+<view class="container">
+  
+  <scroll-view class="sidebar" scroll-y="true">
+    <block wx:for="{{floorData}}" wx:key="id">
+      <view 
+        class="menu-item {{currentFloor === index ? 'active' : ''}}" 
+        bindtap="switchFloor" 
+        data-index="{{index}}"
+      >
+        <text class="floor-name">{{item.floorName}}</text>
+      </view>
+    </block>
+  </scroll-view>
+
+  <scroll-view class="content" scroll-y="true" scroll-top="{{scrollTop}}">
+    <view class="content-wrapper">
+      
+      <view class="header-section">
+        <text class="floor-title">{{floorData[currentFloor].title}}</text>
+        <view class="map-box" bindtap="previewMap">
+          <image src="{{floorData[currentFloor].mapImage}}" mode="aspectFit" class="floor-map" />
+          <view class="zoom-tip">🔍 点击查看大图</view>
+        </view>
+      </view>
+
+      <view class="section-card">
+        <view class="card-header">
+          <view class="blue-line"></view>
+          <text>图书分类 (索书号)</text>
+        </view>
+        <view class="collection-grid">
+          <block wx:for="{{floorData[currentFloor].collections}}" wx:key="code">
+            <view class="collection-item">
+              <text class="code">{{item.code}}</text>
+              <text class="name">{{item.name}}</text>
+            </view>
+          </block>
+        </view>
+        <view class="empty-tip" wx:if="{{floorData[currentFloor].collections.length === 0}}">
+          本楼层主要为服务区域，暂无藏书
+        </view>
+      </view>
+
+      <view class="section-card">
+        <view class="card-header">
+          <view class="blue-line"></view>
+          <text>服务与设施</text>
+        </view>
+        <view class="facility-list">
+          <block wx:for="{{floorData[currentFloor].facilities}}" wx:key="*this">
+            <view class="facility-item">
+              <icon type="success_no_circle" size="14" color="#4a6fa5"/>
+              <text>{{item}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>

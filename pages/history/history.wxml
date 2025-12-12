@@ -1,0 +1,70 @@
+<!--pages/history/history.wxml-->
+<view class="container">
+  
+  <view class="stats-panel">
+    <view class="stats-item">
+      <text class="num">{{totalCount}}</text>
+      <text class="label">累计借阅 (本)</text>
+    </view>
+    <view class="line"></view>
+    <view class="stats-item">
+      <text class="num">{{perfectRate}}%</text>
+      <text class="label">信用守约率</text>
+    </view>
+  </view>
+
+  <view class="search-wrap">
+    <view class="search-bar">
+      <icon type="search" size="14" color="#999"></icon>
+      <input 
+        placeholder="搜索历史书名..." 
+        placeholder-class="ph-style" 
+        bindinput="onSearchInput"
+        value="{{keyword}}"
+      />
+      <view class="clear-icon" wx:if="{{keyword}}" bindtap="clearSearch">
+        <icon type="clear" size="14" color="#ccc"></icon>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="history-list" scroll-y="true">
+    <block wx:for="{{displayList}}" wx:key="id">
+      <view class="history-card" bindtap="goToBookDetail" data-id="{{item.bookId}}">
+        
+        <image class="book-cover" src="{{item.cover}}" mode="aspectFill"></image>
+        
+        <view class="card-info">
+          <view class="info-header">
+            <text class="title">{{item.title}}</text>
+            <text class="status-tag {{item.isOverdue ? 'tag-red' : 'tag-blue'}}">
+              {{item.isOverdue ? '逾期归还' : '按时归还'}}
+            </text>
+          </view>
+          
+          <text class="author">{{item.author}}</text>
+          
+          <view class="date-row">
+            <text class="label">借阅日期：</text>
+            <text class="value">{{item.borrowDate}}</text>
+          </view>
+          <view class="date-row">
+            <text class="label">归还日期：</text>
+            <text class="value">{{item.returnDate}}</text>
+          </view>
+        </view>
+
+      </view>
+    </block>
+
+    <view class="empty-state" wx:if="{{displayList.length === 0}}">
+      <image src="/images/empty-box.png" class="empty-img" mode="widthFix" />
+      <text>暂无相关借阅记录</text>
+    </view>
+    
+    <view class="footer-tips" wx:if="{{displayList.length > 0}}">
+      - 仅展示最近一年的记录 -
+    </view>
+
+  </scroll-view>
+</view>
