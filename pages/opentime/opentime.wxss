@@ -18,7 +18,6 @@ page {
   color: #fff;
   margin-bottom: 24rpx;
   box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
-  width:80%;
 }
 
 .bg-blue {
@@ -56,7 +55,6 @@ page {
   padding: 30rpx;
   margin-bottom: 24rpx;
   box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
-  width:80%;
 }
 
 .card-header {

@@ -1,0 +1,63 @@
+<view class="container">
+
+<view class="top-bar">
+  <view class="total-count">共收藏 {{favoriteList.length}} 本图书</view>
+  <view class="manage-btn" bindtap="toggleEdit" wx:if="{{favoriteList.length > 0}}">
+    {{isEditMode ? '完成' : '管理'}}
+  </view>
+</view>
+
+<scroll-view class="list-scroll" scroll-y="true">
+  <block wx:for="{{favoriteList}}" wx:key="id">
+    <view class="book-card" bindtap="goToDetail" data-id="{{item.id}}">
+      
+      <view class="checkbox-area" wx:if="{{isEditMode}}" catchtap="toggleSelect" data-index="{{index}}">
+        <icon type="{{item.selected ? 'success' : 'circle'}}" size="20" color="#4a6fa5"/>
+      </view>
+
+      <image class="book-cover" src="{{item.cover}}" mode="aspectFill"></image>
+
+      <view class="book-info">
+        <view class="info-top">
+          <text class="title">{{item.title}}</text>
+          <text class="author">{{item.author}}</text>
+        </view>
+        
+        <view class="info-bottom">
+          <view class="status-row">
+            <text class="label">状态：</text>
+            <text class="status-badge {{item.isAvailable ? 'green' : 'orange'}}">
+              {{item.isAvailable ? '在馆' : '全部借出'}}
+            </text>
+          </view>
+          <view class="call-no" wx:if="{{item.isAvailable}}">索书号：{{item.callNumber}}</view>
+          <view class="return-date" wx:else>预计归还：{{item.returnDate}}</view>
+        </view>
+      </view>
+
+      <view class="action-area" wx:if="{{!isEditMode}}">
+        <view class="remove-btn" catchtap="removeOne" data-id="{{item.id}}">
+          <image src="/images/icon-heart-filled.png" class="heart-icon" /> </view>
+      </view>
+
+    </view>
+  </block>
+
+  <view class="empty-state" wx:if="{{favoriteList.length === 0}}">
+    <image src="/images/empty-box.png" class="empty-img" mode="widthFix" />
+    <text>你的收藏夹还是空的</text>
+    <button class="go-search-btn" bindtap="goToSearch">去发现好书</button>
+  </view>
+</scroll-view>
+
+<view class="bottom-bar" wx:if="{{isEditMode}}">
+  <view class="select-all" bindtap="selectAll">
+    <icon type="{{isAllSelected ? 'success' : 'circle'}}" size="20" color="#4a6fa5"/>
+    <text>全选</text>
+  </view>
+  <button class="delete-btn" bindtap="batchDelete" disabled="{{selectedCount === 0}}">
+    删除 ({{selectedCount}})
+  </button>
+</view>
+
+</view>

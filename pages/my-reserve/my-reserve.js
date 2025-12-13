@@ -47,7 +47,7 @@ Page({
           bookId: 101,
           title: "机器学习实战",
           author: "Peter Harrington",
-          cover: "https://img9.doubanio.com/view/subject/l/public/s29515433.jpg",
+          cover: "/images/booklist/empty.jpg",
           status: "ready", // 待取书
           location: "一楼总服务台预约架",
           expireDate: "2025-01-15",
@@ -69,7 +69,7 @@ Page({
           bookId: 103,
           title: "明朝那些事儿",
           author: "当年明月",
-          cover: "https://img1.doubanio.com/view/subject/l/public/s3710034.jpg",
+          cover: "/images/booklist/empty.jpg",
           status: "cancelled", // 已取消
           statusText: "已取消",
           finishDate: "2024-11-11"
@@ -79,7 +79,7 @@ Page({
           bookId: 104,
           title: "围城",
           author: "钱钟书",
-          cover: "", // 如果没图，CSS里有默认背景
+          cover: "/images/booklist/empty.jpg", // 如果没图，CSS里有默认背景
           status: "expired", // 已过期
           statusText: "预约失效",
           finishDate: "2024-10-01"

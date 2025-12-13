@@ -1,0 +1,191 @@
+/* pages/bookshelf/bookshelf.wxss */
+page {
+  background-color: #f6f7f9;
+  height: 100%;
+}
+
+.container {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 1. 顶部栏 --- */
+.top-bar {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.02);
+  z-index: 10;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab-item {
+  font-size: 30rpx;
+  color: #999;
+  margin-right: 40rpx;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  color: #333;
+  font-weight: bold;
+  font-size: 34rpx;
+}
+
+/* 选中时的小圆点装饰 */
+.tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8rpx;
+  height: 8rpx;
+  background: #4a6fa5;
+  border-radius: 50%;
+}
+
+.manage-btn {
+  font-size: 28rpx;
+  color: #4a6fa5;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #4a6fa5;
+  border-radius: 30rpx;
+}
+
+/* --- 2. 书架网格 --- */
+.shelf-scroll {
+  flex: 1;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.shelf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  /* 刚好一行三个，中间留空隙 */
+  justify-content: flex-start; 
+}
+
+/* 单本书容器 */
+.book-item {
+  width: 31%; /* 一行三个 */
+  margin-right: 3.5%; /* 间距 */
+  margin-bottom: 50rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* 第3n个元素去除右边距，防止换行 */
+.book-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+/* 删除角标 */
+.delete-badge {
+  position: absolute;
+  top: -16rpx;
+  left: -16rpx;
+  z-index: 20;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2rpx; /* 白边 */
+}
+
+/* 封面 */
+.cover-wrapper {
+  width: 100%;
+  height: 280rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  box-shadow: 4rpx 4rpx 10rpx rgba(0,0,0,0.15); /* 模拟书本阴影 */
+  position: relative;
+  background: #eee;
+}
+
+.book-cover {
+  width: 100%;
+  height: 100%;
+}
+
+/* 进度条 */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6rpx;
+  background: rgba(0,0,0,0.3);
+}
+
+.progress-inner {
+  height: 100%;
+  background: #52c41a; /* 绿色进度 */
+}
+
+/* 书名与信息 */
+.book-title {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: bold;
+  margin-top: 16rpx;
+  
+  /* 限制1行，超出省略 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-meta {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+/* 添加按钮样式 */
+.add-item .cover-wrapper {
+  background: #eef2f8;
+  border: 2rpx dashed #ccd9ec;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-icon {
+  font-size: 60rpx;
+  color: #4a6fa5;
+  font-weight: lighter;
+}
+
+.add-text {
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 16rpx;
+  text-align: center;
+}
+
+/* --- 动画：抖动 (Edit Mode) --- */
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.shaking {
+  animation: shake 0.2s infinite;
+}

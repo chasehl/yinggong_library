@@ -1,0 +1,68 @@
+<view class="container">
+
+<view class="header-banner">
+  <image class="bg-image" src="/images/library-building.jpg" mode="aspectFill"></image>
+  <view class="mask"></view>
+  <view class="app-info">
+    <image class="logo" src="/images/default-avatar.png" mode="aspectFit"></image>
+    <text class="app-name">书香应工</text>
+    <text class="app-version">Version 1.0.2</text>
+  </view>
+</view>
+
+<view class="stats-card">
+  <view class="stat-item">
+    <text class="num">120<text class="unit">万</text></text>
+    <text class="label">馆藏图书</text>
+  </view>
+  <view class="line"></view>
+  <view class="stat-item">
+    <text class="num">2.5<text class="unit">万</text></text>
+    <text class="label">建筑面积(㎡)</text>
+  </view>
+  <view class="line"></view>
+  <view class="stat-item">
+    <text class="num">3000</text>
+    <text class="label">阅览座位</text>
+  </view>
+</view>
+
+<view class="section-card">
+  <view class="title">关于图书馆</view>
+  <text class="intro-text" space="emsp">  应用工程学院图书馆始建于 19XX 年，是一所集藏、借、阅、参一体化的现代化高校图书馆。
+
+馆内设有自然科学书库、社会科学书库、现刊阅览室、电子阅览室等多个服务窗口。我们致力于为全校师生提供丰富的文献资源和优质的信息服务，是学校的文献信息中心和文化育人基地。</text>
+</view>
+
+<view class="section-list">
+  <view class="list-item" bindtap="callPhone">
+    <view class="left">
+      <text class="label">联系电话</text>
+      <text class="value">010-88886666</text>
+    </view>
+    <view class="right-icon">📞</view>
+  </view>
+
+  <view class="list-item" bindtap="openMap">
+    <view class="left">
+      <text class="label">馆舍地址</text>
+      <text class="value">某某市某某区应用大道1号</text>
+    </view>
+    <view class="right-icon">📍</view>
+  </view>
+  
+  <view class="list-item">
+    <view class="left">
+      <text class="label">官方网站</text>
+      <text class="value">lib.example.edu.cn</text>
+    </view>
+    <view class="copy-btn" bindtap="copyLink">复制</view>
+  </view>
+</view>
+
+<view class="footer">
+  <text>Copyright © 2025 应用工程学院图书馆</text>
+  <text>Designed & Developed by YourName</text>
+</view>
+
+</view>

@@ -1,0 +1,63 @@
+<view class="container">
+
+<view class="search-header">
+  <view class="search-box">
+    <icon type="search" size="14" color="#999"></icon>
+    <input 
+      class="search-input" 
+      placeholder="搜索关键词，如“WIFI”、“密码”" 
+      bindinput="onSearchInput"
+      value="{{keyword}}"
+    />
+    <view class="clear-btn" wx:if="{{keyword}}" bindtap="clearSearch">
+      <icon type="clear" size="14" color="#ccc"></icon>
+    </view>
+  </view>
+</view>
+
+<scroll-view class="category-scroll" scroll-x="true" enable-flex="true">
+  <block wx:for="{{categories}}" wx:key="id">
+    <view 
+      class="cat-item {{currentCatId === item.id ? 'active' : ''}}" 
+      bindtap="switchCategory" 
+      data-id="{{item.id}}"
+    >
+      {{item.name}}
+    </view>
+  </block>
+</scroll-view>
+
+<scroll-view class="qa-list" scroll-y="true">
+  <block wx:for="{{displayList}}" wx:key="id">
+    <view class="qa-item">
+      
+      <view class="question-row" bindtap="toggleAnswer" data-index="{{index}}">
+        <view class="q-icon">Q</view>
+        <text class="q-text">{{item.question}}</text>
+        <view class="arrow-icon {{item.isOpen ? 'rotate' : ''}}">▼</view>
+      </view>
+
+      <view class="answer-row" wx:if="{{item.isOpen}}">
+        <view class="a-content">
+          <text>{{item.answer}}</text>
+        </view>
+      </view>
+
+    </view>
+  </block>
+
+  <view class="empty-state" wx:if="{{displayList.length === 0}}">
+    <image src="/images/empty-box.png" class="empty-img" mode="widthFix" />
+    <text>未找到相关问题</text>
+  </view>
+
+  <view class="footer-space"></view>
+</scroll-view>
+
+<view class="footer-bar">
+  <button class="feedback-btn" open-type="contact">
+    <text>没找到答案？联系人工客服</text>
+  </button>
+</view>
+
+</view>

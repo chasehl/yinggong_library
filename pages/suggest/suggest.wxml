@@ -1,0 +1,103 @@
+<view class="container">
+
+<view class="tabs-header">
+  <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="{{0}}">
+    我要荐购
+    <view class="tab-line" wx:if="{{currentTab === 0}}"></view>
+  </view>
+  <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="{{1}}">
+    荐购历史
+    <view class="tab-line" wx:if="{{currentTab === 1}}"></view>
+  </view>
+</view>
+
+<view class="content-body">
+  
+  <scroll-view class="form-scroll" scroll-y="true" wx:if="{{currentTab === 0}}">
+    
+    <view class="scan-card">
+      <view class="scan-btn" bindtap="scanISBN">
+        <image src="/images/icon-scan.png" class="scan-icon" /> <text>扫描书后 ISBN 条码自动填写</text>
+      </view>
+      <view class="scan-tip">支持直接扫描书本背面的条形码</view>
+    </view>
+
+    <view class="form-card">
+      <view class="form-item">
+        <text class="label">ISBN</text>
+        <input class="input" placeholder="扫码或手动输入" value="{{formData.isbn}}" bindinput="onInput" data-field="isbn"/>
+      </view>
+      <view class="divider"></view>
+
+      <view class="form-item">
+        <text class="label required">书名</text>
+        <input class="input" placeholder="请输入书名" value="{{formData.title}}" bindinput="onInput" data-field="title"/>
+      </view>
+      <view class="divider"></view>
+
+      <view class="form-item">
+        <text class="label required">作者</text>
+        <input class="input" placeholder="请输入作者" value="{{formData.author}}" bindinput="onInput" data-field="author"/>
+      </view>
+      <view class="divider"></view>
+
+      <view class="form-item">
+        <text class="label">出版社</text>
+        <input class="input" placeholder="选填" value="{{formData.publisher}}" bindinput="onInput" data-field="publisher"/>
+      </view>
+      <view class="divider"></view>
+
+      <view class="form-item vertical">
+        <text class="label">推荐理由</text>
+        <textarea 
+          class="textarea" 
+          placeholder="请简述推荐理由，有助于通过审核..." 
+          maxlength="200"
+          value="{{formData.reason}}"
+          bindinput="onInput" 
+          data-field="reason"
+        ></textarea>
+        <text class="char-count">{{formData.reason.length}}/200</text>
+      </view>
+    </view>
+
+    <view class="submit-btn" bindtap="submitForm">提交申请</view>
+    <view class="form-tips">注：提交后请在“荐购历史”中查看反馈。</view>
+
+  </scroll-view>
+
+  <scroll-view class="history-scroll" scroll-y="true" wx:if="{{currentTab === 1}}">
+    <block wx:for="{{historyList}}" wx:key="id">
+      <view class="history-card">
+        
+        <view class="card-header">
+          <text class="date">{{item.date}}</text>
+          <text class="status-badge status-{{item.statusCode}}">{{item.statusText}}</text>
+        </view>
+        
+        <view class="book-info">
+          <text class="book-title">《{{item.title}}》</text>
+          <text class="book-author">{{item.author}}</text>
+        </view>
+
+        <view class="feedback-box reject" wx:if="{{item.statusCode === 'rejected'}}">
+          <text class="fb-label">驳回理由：</text>
+          <text>{{item.reply}}</text>
+        </view>
+
+         <view class="feedback-box success" wx:if="{{item.statusCode === 'done'}}">
+          <text class="fb-label">馆藏位置：</text>
+          <text>{{item.reply}}</text>
+        </view>
+
+      </view>
+    </block>
+
+    <view class="empty-state" wx:if="{{historyList.length === 0}}">
+      <image src="/images/empty-box.png" class="empty-img" mode="widthFix" />
+      <text>暂无荐购记录</text>
+    </view>
+  </scroll-view>
+
+</view>
+</view>

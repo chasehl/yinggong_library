@@ -1,0 +1,62 @@
+<view class="container">
+
+<view class="section">
+  <view class="section-title">反馈类型</view>
+  <view class="tags-row">
+    <block wx:for="{{categories}}" wx:key="*this">
+      <view 
+        class="tag-item {{currentType === item ? 'active' : ''}}" 
+        bindtap="selectType" 
+        data-type="{{item}}"
+      >
+        {{item}}
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="section">
+  <view class="section-title">问题描述</view>
+  <view class="textarea-wrap">
+    <textarea 
+      class="feedback-input" 
+      placeholder="请详细描述您遇到的问题或建议，我们将尽快优化..." 
+      placeholder-class="ph-style"
+      maxlength="200"
+      bindinput="onInput"
+    ></textarea>
+    <text class="counter">{{contentLength}}/200</text>
+  </view>
+</view>
+
+<view class="section">
+  <view class="section-title">截图/照片 (选填，最多4张)</view>
+  <view class="image-grid">
+    <block wx:for="{{images}}" wx:key="*this">
+      <view class="img-item">
+        <image src="{{item}}" mode="aspectFill" bindtap="previewImage" data-src="{{item}}"></image>
+        <view class="del-btn" catchtap="deleteImage" data-index="{{index}}">×</view>
+      </view>
+    </block>
+    
+    <view class="upload-btn" bindtap="chooseImage" wx:if="{{images.length < 4}}">
+      <text class="plus">+</text>
+      <text class="upload-text">上传图片</text>
+    </view>
+  </view>
+</view>
+
+<view class="section">
+  <view class="section-title">联系方式 (选填)</view>
+  <input 
+    class="contact-input" 
+    placeholder="留下手机号/微信号，方便我们联系您" 
+    bindinput="onContactInput"
+  />
+</view>
+
+<view class="footer">
+  <button class="submit-btn" bindtap="submitFeedback" disabled="{{contentLength === 0}}">提交反馈</button>
+</view>
+
+</view>

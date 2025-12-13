@@ -1,0 +1,57 @@
+<!--pages/bookshelf/bookshelf.wxml-->
+<view class="container">
+  
+  <view class="top-bar">
+    <view class="tabs">
+      <view 
+        class="tab-item {{currentTab === 0 ? 'active' : ''}}" 
+        bindtap="switchTab" data-index="{{0}}">在读</view>
+      <view 
+        class="tab-item {{currentTab === 1 ? 'active' : ''}}" 
+        bindtap="switchTab" data-index="{{1}}">想读</view>
+      <view 
+        class="tab-item {{currentTab === 2 ? 'active' : ''}}" 
+        bindtap="switchTab" data-index="{{2}}">已读</view>
+    </view>
+    
+    <view class="manage-btn" bindtap="toggleEdit">
+      {{isEditMode ? '完成' : '管理'}}
+    </view>
+  </view>
+
+  <scroll-view class="shelf-scroll" scroll-y="true">
+    <view class="shelf-grid">
+      
+      <block wx:for="{{displayList}}" wx:key="id">
+        <view class="book-item {{isEditMode ? 'shaking' : ''}}" bindtap="onBookTap" data-id="{{item.id}}">
+          
+          <view class="delete-badge" wx:if="{{isEditMode}}" catchtap="deleteBook" data-id="{{item.id}}">
+            <icon type="clear" size="20" color="#e74c3c"/>
+          </view>
+
+          <view class="cover-wrapper">
+            <image src="{{item.cover}}" class="book-cover" mode="aspectFill" />
+            <view class="progress-bar" wx:if="{{currentTab === 0}}">
+              <view class="progress-inner" style="width: {{item.progress}};"></view>
+            </view>
+          </view>
+          
+          <text class="book-title">{{item.title}}</text>
+          
+          <text class="book-meta" wx:if="{{currentTab === 0}}">读至 {{item.progress}}%</text>
+          <text class="book-meta" wx:else>{{item.author}}</text>
+        
+        </view>
+      </block>
+
+      <view class="book-item add-item" bindtap="goToSearch">
+        <view class="add-icon">+</view>
+        <text class="add-text">添加书籍</text>
+      </view>
+
+    </view>
+    
+    <view class="shelf-line"></view>
+  </scroll-view>
+
+</view>

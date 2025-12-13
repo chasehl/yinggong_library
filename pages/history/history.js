@@ -44,7 +44,7 @@ Page({
           bookId: 101,
           title: "活着",
           author: "余华",
-          cover: "https://img9.doubanio.com/view/subject/l/public/s33959269.jpg",
+          cover: "/images/booklist/bookCover3.jpg",
           borrowDate: "2024-10-01",
           returnDate: "2024-10-25",
           isOverdue: false // 正常
@@ -53,7 +53,7 @@ Page({
           bookId: 102,
           title: "深入浅出Vue.js",
           author: "刘博文",
-          cover: "", // 无图测试
+          cover: "/images/booklist/empty.jpg", // 无图测试
           borrowDate: "2024-09-15",
           returnDate: "2024-10-20",
           isOverdue: true // 逾期
@@ -62,7 +62,7 @@ Page({
           bookId: 103,
           title: "我们仨",
           author: "杨绛",
-          cover: "https://img1.doubanio.com/view/subject/l/public/s3710034.jpg",
+          cover: "/images/booklist/empty.jpg",
           borrowDate: "2024-08-01",
           returnDate: "2024-08-10",
           isOverdue: false
@@ -71,7 +71,7 @@ Page({
           bookId: 104,
           title: "Java编程思想",
           author: "Bruce Eckel",
-          cover: "https://img9.doubanio.com/view/subject/l/public/s29515433.jpg",
+          cover: "/images/booklist/empty.jpg",
           borrowDate: "2024-06-01",
           returnDate: "2024-09-01",
           isOverdue: true // 严重逾期

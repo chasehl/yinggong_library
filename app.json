@@ -17,7 +17,13 @@
     "pages/rule/rule",
     "pages/history/history",
     "pages/map/map",
-    "pages/opentime/opentime"
+    "pages/opentime/opentime",
+    "pages/bookshelf/bookshelf",
+    "pages/favorite/favorite",
+    "pages/suggest/suggest",
+    "pages/about/about",
+    "pages/faq/faq",
+    "pages/feedback/feedback"
   ],
   "tabBar": {
     "color": "#999999",
